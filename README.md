@@ -157,14 +157,16 @@ joinedtweets['text'] = joinedtweets['text'].apply(lambda x: lemmatizer_on_text(x
 joinedtweets['text'].head()
 ```
 
-
-### Word Cloud
-
--Positive word cloud
+### Positive word cloud
 
 <div align="center">
   <img src="https://github.com/khushals025/Twitter_Sentiment_Analysis/blob/main/Positive.png?raw=true" alt="Image Alt" width="1000">
 </div>
 
 
--Negative Word cloud
+### Negative Word cloud
+
+
+<div align="center">
+  <img src="https://github.com/khushals025/Twitter_Sentiment_Analysis/blob/main/Negative.png?raw=true" alt="Image Alt" width="1000">
+</div>
