@@ -69,3 +69,45 @@ Preprocessing of datasets and tweet include following points:
 - Removing repeating characters from the tweets. 
 - Removing URL’s from the tweets.
 - Removing numbers from the tweets.
+
+### 4.1 Tokenization
+
+- Process of breaking down the given text in natural language processing into the smallest unit in a sentence called a token. Punctuation marks, words, and numbers can be considered tokens.
+- With the help of nltk.tokenize.SpaceTokenizer() method, we are able to extract the tokens from string of words on the basis of space between them by using tokenize.SpaceTokenizer() method.
+
+<div align="center">
+  <img src="https://thepythoncode.com/media/articles/tokenization-stemming-and-lemmatization-in-python/img1.png" alt="Image Alt" width="400">
+</div>
+
+### 4.2 Stemming 
+- With stemming, words are reduced to their word stems. A word stem need not be the same root as a dictionary-based morphological root, it just is an equal to or smaller form of the word.
+
+There are 3 types of stemming:
+
+- Porter Stemmer
+- Snowball Stemmer
+- Lancaster Stemmer
+
+We used Porter Stemmer in this Project. 
+
+#### Porter-Stemmer Algorithm 
+
+- The rules for replacing (or removing) a suffix will be given in the form as shown below.
+
+(condition) S1 → S2
+
+- This means that if a word ends with the suffix S1, and the stem before S1 satisfies the given condition, S1 is replaced by S2. The condition is usually given in terms of m in regard to the stem before S1.
+
+(m > 1) EMENT →
+Here S1 is ‘EMENT’ and S2 is null. This would map REPLACEMENT to REPLAC, since REPLAC is a word part for which m = 2.
+
+<div align="center">
+  <img src="https://qph.cf2.quoracdn.net/main-qimg-187b045c480fa7c0b16869daa0661b5a" alt="Image Alt" width="600">
+</div>
+
+The conditions may contain the following:
+
+- *S    –    the stem ends with S (and similarly for the other letters)
+- *v*  –    the stem contains a vowel
+- *d    –    the stem ends with a double consonant (e.g. -TT, -SS)
+- *o    –    the stem ends cvc, where the second c is not W, X or Y (e.g. -WIL, -HOP)
