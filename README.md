@@ -180,3 +180,11 @@ joinedtweets['text'].head()
 <div align="center">
   <img src="https://miro.medium.com/v2/resize:fit:816/1*1pTLnoOPJKKcKIcRi3q0WA.jpeg" alt="Image Alt" width="500">
 </div>
+
+```bash
+vectoriser = TfidfVectorizer(ngram_range=(1,2), max_features=500000)
+vectoriser.fit(X_train)
+print('No. of feature_words: ', len(vectoriser.get_feature_names()))
+```
+
+
