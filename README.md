@@ -176,3 +176,7 @@ joinedtweets['text'].head()
 - Term Frequency (tf)- It gives us the recurrence of the word in each report in the corpus. It is the proportion of the number of times the word shows up in a report contrasted with the all-out the number of words in that record. It increments as the quantity of events of that word inside the record increments.
 
 - Inverse Data Frequency (idf)- It is used to figure out the heaviness of uncommon words over all reports in the corpus. The words that occur seldom in the corpus have a high IDF score.
+
+<div align="center">
+  <img src="https://miro.medium.com/v2/resize:fit:816/1*1pTLnoOPJKKcKIcRi3q0WA.jpeg" alt="Image Alt" width="500">
+</div>
