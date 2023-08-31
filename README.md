@@ -170,3 +170,9 @@ joinedtweets['text'].head()
 <div align="center">
   <img src="https://github.com/khushals025/Twitter_Sentiment_Analysis/blob/main/Negative.png?raw=true" alt="Image Alt" width="1000">
 </div>
+
+### 4.4 TF-IDF Vectorization 
+
+- Term Frequency (tf)- It gives us the recurrence of the word in each report in the corpus. It is the proportion of the number of times the word shows up in a report contrasted with the all-out the number of words in that record. It increments as the quantity of events of that word inside the record increments.
+
+- Inverse Data Frequency (idf)- It is used to figure out the heaviness of uncommon words over all reports in the corpus. The words that occur seldom in the corpus have a high IDF score.
