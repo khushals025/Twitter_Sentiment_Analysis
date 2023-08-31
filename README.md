@@ -156,3 +156,9 @@ def lemmatizer_on_text(data):
 joinedtweets['text'] = joinedtweets['text'].apply(lambda x: lemmatizer_on_text(x))
 joinedtweets['text'].head()
 ```
+
+
+### Word Cloud
+
+-Positive word cloud
+-Negative Word cloud
