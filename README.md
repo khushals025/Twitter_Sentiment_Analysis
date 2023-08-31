@@ -8,6 +8,7 @@
 - [Introduction](#introduction)
 - [Dependencies](#dependencies)
 - [Dataset](#dataset)
+- [Data Pre-Processing](#data-pre-processing)
 
 
 ## 1. Introduction
@@ -75,6 +76,13 @@ Preprocessing of datasets and tweet include following points:
 - Process of breaking down the given text in natural language processing into the smallest unit in a sentence called a token. Punctuation marks, words, and numbers can be considered tokens.
 - With the help of nltk.tokenize.SpaceTokenizer() method, we are able to extract the tokens from string of words on the basis of space between them by using tokenize.SpaceTokenizer() method.
 
+```bash
+from nltk.tokenize import SpaceTokenizer
+tokenizer=SpaceTokenizer()
+joinedtweets['text'] = joinedtweets['text'].apply(tokenizer.tokenize)
+joinedtweets['text'].head()
+```
+
 <div align="center">
   <img src="https://thepythoncode.com/media/articles/tokenization-stemming-and-lemmatization-in-python/img1.png" alt="Image Alt" width="400">
 </div>
@@ -92,6 +100,10 @@ We used Porter Stemmer in this Project.
 
 #### Porter-Stemmer Algorithm 
 
+<div align="center">
+  <img src="https://qph.cf2.quoracdn.net/main-qimg-187b045c480fa7c0b16869daa0661b5a" alt="Image Alt" width="600">
+</div>
+
 - The rules for replacing (or removing) a suffix will be given in the form as shown below.
 
 (condition) S1 → S2
@@ -102,8 +114,18 @@ We used Porter Stemmer in this Project.
 Here S1 is ‘EMENT’ and S2 is null. This would map REPLACEMENT to REPLAC, since REPLAC is a word part for which m = 2.
 
 <div align="center">
-  <img src="https://qph.cf2.quoracdn.net/main-qimg-187b045c480fa7c0b16869daa0661b5a" alt="Image Alt" width="600">
+  <img src="https://vijinimallawaarachchi.files.wordpress.com/2017/05/ex.png" alt="Image Alt" width="400">
 </div>
+
+```bash
+st = nltk.PorterStemmer()
+def stemming_on_text(data):
+    text = [st.stem(word) for word in data]
+    return data
+joinedtweets['text']= joinedtweets['text'].apply(lambda x: stemming_on_text(x))
+joinedtweets['text'].head()
+```
+
 
 The conditions may contain the following:
 
@@ -111,3 +133,26 @@ The conditions may contain the following:
 - *v*  –    the stem contains a vowel
 - *d    –    the stem ends with a double consonant (e.g. -TT, -SS)
 - *o    –    the stem ends cvc, where the second c is not W, X or Y (e.g. -WIL, -HOP)
+
+- Note: These are just a few rules, in the actual algorithm there are many.
+
+### 4.3 Lemmatization
+
+- The aim of lemmatization, like stemming, is to reduce inflectional forms to a common base form. As opposed to stemming, lemmatization does not simply chop off inflections. Instead, it uses lexical knowledge bases to get the correct base forms of words.
+
+<div align="center">
+  <img src="https://miro.medium.com/v2/resize:fit:1128/format:webp/1*HLQgkMt5-g5WO5VpNuTl_g.jpeg" alt="Image Alt" width="700">
+</div>
+
+```bash
+nltk.download('wordnet')
+nltk.download('omw-1.4')
+from nltk import WordNetLemmatizer
+
+lm = WordNetLemmatizer()  
+def lemmatizer_on_text(data):
+    text = [lm.lemmatize(word) for word in data]
+    return data
+joinedtweets['text'] = joinedtweets['text'].apply(lambda x: lemmatizer_on_text(x))
+joinedtweets['text'].head()
+```
